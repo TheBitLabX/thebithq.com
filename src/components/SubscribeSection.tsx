@@ -38,7 +38,7 @@ export default function SubscribeSection() {
               </p>
             </div>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="relative">
               <Image
                 src={`/img/subscribe.png`}

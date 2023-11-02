@@ -5,6 +5,7 @@ import AboutArtist from "@/components/AboutArtist";
 import SpotlightCarousel from "@/components/SpotlightCarousel";
 import SongCard from "@/components/SongCard";
 import { trends } from "@/data";
+import HeroSection from "@/components/HeroSection";
 
 export default function Trending() {
   return (
@@ -24,52 +25,7 @@ export default function Trending() {
         </div>
       </section>
 
-      <section className="relative">
-        <Image
-          className="w-full h-full absolute inset-0 object-cover object-center"
-          src="/img/hero_3.jpg"
-          alt="Hero"
-          width={1280}
-          height={853}
-        />
-        <div className="absolute w-full h-full left-0 top-0 bg-gradient-to-r from-black via-black/60 z-5"></div>
-        <div className="container min-h-[500px] relative">
-          <div className="lg:max-w-xl text-white lg:self-center py-20 md:py-40 lg:py-32">
-            <p className="text-primary text-lg xl:text-xl">
-              Artist Of The Week
-            </p>
-            <h1 className="my-6 font-garet text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold">
-              Wonder H
-            </h1>
-            <p className="text-base md:text-lg lg:text-xl xl:text-[1.4rem] font-light xl:leading-8 mb-4 lg:mb-10">
-              Wonder H is a talented Rapper, known for his heavy weight
-              punchlines. His lyrics are packed with puns and metaphorical bars
-              that are breath-taking.
-            </p>
-
-            <div className="mb-10 lg:mb-0 lg:absolute lg:right-0 lg:bottom-10">
-              <AboutArtist />
-            </div>
-
-            <div className="space-y-4 md:space-y-0 md:flex md:gap-x-4">
-              <Link
-                href="/profile"
-                role="button"
-                className="btn btn-primary btn-block md:w-auto btn-outline"
-              >
-                More from Artist
-              </Link>
-              <Link
-                href="/soon"
-                role="button"
-                className="btn btn-primary btn-block md:w-auto"
-              >
-                Book this Artist
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+     <HeroSection />
 
       <section className="py-12 bg-base-100">
         <div className="container">

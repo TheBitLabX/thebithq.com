@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
+import Image from "next/image";
+import { ChevronRightIcon } from "lucide-react";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Image from "next/image";
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin";
-import { ChevronRightIcon } from "lucide-react";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";

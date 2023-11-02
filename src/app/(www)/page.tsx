@@ -1,101 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
 
 import DiscoverScrollTabs from "@/components/DiscoverScrollTabs";
 import SubscribeSection from "@/components/SubscribeSection";
-import AboutArtist from "@/components/AboutArtist";
 import SpotlightCarousel from "@/components/SpotlightCarousel";
 import StoriesSection from "@/components/StoriesSection";
-import PartnerLogos from "@/components/PartnerLogos";
 import EventCarousel from "@/components/EventCarousel";
 import FeaturedArtistSection from "@/components/FeaturedArtistSection";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
     <main className="">
-      <section className="relative overflow-hidden">
-        <div className="">
-          <Image
-            className="w-full h-full absolute inset-0 object-cover object-center"
-            src="/img/hero_3.jpg"
-            alt="Hero"
-            width={1280}
-            height={853}
-          />
-          <div className="absolute w-full h-full left-0 top-0 bg-gradient-to-r from-black via-black/60 z-5"></div>
-          <div className="container relative h-screen grid place-content-center lg:place-content-stretch">
-            <div className="lg:max-w-xl text-white lg:self-center md:pt-40 lg:pt-20">
-              <p className="text-primary text-lg xl:text-xl">
-                Artist Of The Week
-              </p>
-              <h1 className="my-6 font-garet text-3xl md:text-5xl lg:text-7xl xl:text-8xl font-bold">
-                Wonder H
-              </h1>
-              <p className="text-base md:text-lg lg:text-xl xl:text-[1.4rem] font-light xl:leading-relaxed">
-                Wonder H is a talented Rapper, known for his heavy weight
-                punchlines. His lyrics are packed with puns and metaphorical
-                bars that are breath-taking.
-              </p>
 
-              <div className="lg:hidden my-6">
-                <AboutArtist />
-              </div>
-            </div>
-
-            <div className="hidden lg:block lg:absolute lg:right-10 lg:bottom-20">
-              <AboutArtist />
-            </div>
-
-            <div className="space-y-4 md:space-y-0 md:flex md:gap-x-4 lg:hidden">
-              <Link
-                href="/"
-                role="button"
-                className="btn btn-primary btn-block md:w-1/2 btn-outline"
-              >
-                View Blog
-              </Link>
-              <Link
-                href=""
-                role="button"
-                className="btn btn-primary btn-block md:w-1/2"
-              >
-                Artist Profile
-              </Link>
-            </div>
-
-            <div className="absolute bottom-0 md:bottom-0 left-1/2 -translate-x-1/2 lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="0.2"
-                className="arrows"
-              >
-                <path className="a1" d="m6 8 6 6 6-6" />
-                <path className="a2" d="m6 13 6 6 6-6" />
-                <path className="a3" d="m6 18 6 6 6-6" />
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div
-          className="relative py-12"
-          style={{
-            background:
-              "linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 90%)",
-          }}
-        >
-          <div className="container py-12">
-            <h2 className="text-center font-bold text-lg md:text-xl xl:text-2xl text-white mt-12">
-              Supported by the Most Recognized Brands in the Industry
-            </h2>
-            <PartnerLogos />
-          </div>
-        </div>
-      </section>
+      <HeroSection isHomepage />
 
       <section className="py-12 bg-base-100">
         <div className="container">

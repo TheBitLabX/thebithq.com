@@ -108,7 +108,7 @@ export default function About() {
                 <div className="form-control">
                   <label className="pb-1 label items-center justify-start space-x-3 cursor-pointer">
                     <input required type="checkbox" className="w-4 h-4" />
-                    <span className="pb-1 label-text text-zinc-700">
+                    <span className="label-text text-zinc-700">
                       I accept the{" "}
                       <Link className="!lowercase" href={`#`}>
                         terms

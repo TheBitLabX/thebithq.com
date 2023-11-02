@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-// import { gsap } from "gsap";
 
 const projects = [
   {
@@ -43,7 +42,7 @@ export default function Header() {
   const pathname = usePathname();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [headerType, setHeaderType] = useState("");
+  const [headerType, setHeaderType] = useState("overlay");
 
   useEffect(() => {
     setHeaderType(pathname === "/" ? "overlay" : "classic");
@@ -120,10 +119,10 @@ export default function Header() {
                   height={24}
                 />
               </div>
-              <button className="btn btn-outline btn-primary rounded-lg mr-2 md:mr-0">
+              <button className="btn btn-outline btn-primary rounded-lg w-1/2 md:w-auto mr-2 md:mr-0">
                 Create Account
               </button>
-              <button className="btn btn-primary rounded-lg ml-2 md:ml-0">
+              <button className="btn btn-primary rounded-lg w-[47%] md:w-auto">
                 Get Started
               </button>
             </div>
