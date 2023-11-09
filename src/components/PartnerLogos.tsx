@@ -61,21 +61,23 @@ export default function PartnerLogos() {
     }, []);
 
   return (
-    <div
-      className="partners mt-6 z-10 flex flex-nowrap overflow-visible w-[600vh]"
-      style={{ maxWidth: "auto" }}
-    >
-      {Array.from({ length: 4 }, (_, i) => (
-        <div key={i} className="image saturate-0 p-4 inline-flex items-center hover:z-20 hover:saturate-100">
-        <Image
-          className="transition duration-300 ease-out overflow-hidden w-full"
-          src={`/img/partners/${i + 1}.png`}
-          alt={`Brand ${i + 1}`}
-          width={183}
-          height={83}
-        />
-        </div>
-      ))}
+    <div className="overflow-x-hidden">
+      <div
+        className="partners mt-6 z-10 flex flex-nowrap overflow-visible w-[600vh]"
+        style={{ maxWidth: "auto" }}
+      >
+        {Array.from({ length: 4 }, (_, i) => (
+          <div key={i} className="image saturate-0 p-4 inline-flex items-center hover:z-20 hover:saturate-100">
+          <Image
+            className="transition duration-300 ease-out overflow-hidden w-full"
+            src={`/img/partners/${i + 1}.png`}
+            alt={`Brand ${i + 1}`}
+            width={183}
+            height={83}
+          />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

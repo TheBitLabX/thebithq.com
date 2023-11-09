@@ -88,7 +88,7 @@ export default function DiscoverScrollTabs() {
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    // mode: "free",
+    // mode: "free-snap",
     slides: {
       perView: 1,
       spacing: 10,

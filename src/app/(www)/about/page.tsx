@@ -56,13 +56,13 @@ export default function About() {
           width={1440}
           height={525}
         />
-        <div className="relative container py-12">
+        <div className="relative container pt-12">
           <h2 className="text-center font-bold text-lg md:text-xl xl:text-2xl text-white">
             Supported by the Most Recognized Brands in the Industry
           </h2>
-          <div className="relative">
-            <PartnerLogos />
-          </div>
+        </div>
+        <div className="relative pb-12">
+          <PartnerLogos />
         </div>
       </section>
 

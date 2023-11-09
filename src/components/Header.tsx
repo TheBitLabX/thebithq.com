@@ -6,12 +6,12 @@ import { MenuIcon, XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const projects = [
-  {
-    id: 1,
-    url: "/soon/concert",
-    text: "BitConcert",
-    logo: "/img/svg/bit_icon.svg",
-  },
+  // {
+  //   id: 1,
+  //   url: "/",
+  //   text: "BitConcert",
+  //   logo: "/img/svg/bit_icon.svg",
+  // },
   {
     id: 2,
     url: "/soon/films",
@@ -57,12 +57,31 @@ export default function Header() {
         }`}
       >
         <ul className="tbhq-topbar">
+          <li>
+            <Link
+              href="/"
+              className={`flex space-x-2 rounded appearance-none p-1 pl-2 pr-24
+              ${
+                !pathname.includes("/soon/")
+                  ? "bg-zinc-400/20"
+                  : "hover:bg-[#BBBBBB2B]"
+              }`}
+            >
+              <Image
+                src={`/img/svg/bit_icon.svg`}
+                alt={`BitConcert Icon`}
+                width={24}
+                height={24}
+              />
+              <span>BitConcert</span>
+            </Link>
+          </li>
           {projects.map(({ id, url, logo, text }) => (
             <li key={id}>
               <Link
                 href={url}
                 className={`flex space-x-2 rounded appearance-none p-1 pl-2 pr-24 ${
-                  pathname == url ? "bg-zinc-400/20" : "hover:bg-[#BBBBBB2B]"
+                  pathname === url ? "bg-zinc-400/20" : "hover:bg-[#BBBBBB2B]"
                 }`}
               >
                 <Image src={logo} alt={`${text} Icon`} width={24} height={24} />
@@ -73,7 +92,7 @@ export default function Header() {
         </ul>
         <div className="w-full lg:flex lg:flex-nowrap md:items-center pt-4 pb-4">
           <div>
-            <Link href={"/"} className="w-40">
+            <Link href={"/"} className="w-40 inline-block">
               <Image
                 src={
                   headerType === "overlay"
@@ -119,12 +138,18 @@ export default function Header() {
                   height={24}
                 />
               </div>
-              <button className="btn btn-outline btn-primary rounded-lg w-1/2 md:w-auto mr-2 md:mr-0">
+              <Link
+                href={`/auth/login`}
+                className="btn btn-outline btn-primary rounded-lg w-1/2 md:w-auto mr-2 md:mr-0"
+              >
                 Create Account
-              </button>
-              <button className="btn btn-primary rounded-lg w-[47%] md:w-auto">
+              </Link>
+              <Link
+                href={`/auth/login`}
+                className="btn btn-primary rounded-lg w-[47%] md:w-auto"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         </div>

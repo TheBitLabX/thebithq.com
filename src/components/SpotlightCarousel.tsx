@@ -8,7 +8,7 @@ import { artists } from "@/data";
 export default function SpotlightCarousel() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    mode: "free",
+    mode: "free-snap",
     slides: {
       perView: 1,
       spacing: 10,
