@@ -7,7 +7,7 @@ import { events } from "@/data";
 export default function EventCarousel() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    // mode: "free",
+    // mode: "free-snap",
     slides: {
       perView: 1,
       spacing: 0,

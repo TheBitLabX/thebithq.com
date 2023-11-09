@@ -50,7 +50,7 @@ export default function Footer() {
       { id: 3, text: "Business Profile", url: "/soon" },
     ],
     links: [
-      { id: 1, text: "Login", url: "/soon" },
+      { id: 1, text: "Login", url: "/auth/login" },
       {
         id: 2,
         text: "Events",

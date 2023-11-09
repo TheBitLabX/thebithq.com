@@ -10,18 +10,17 @@ export default function FeaturedArtistSection() {
   const firstArtist = artists[0];
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    mode: "free",
+    mode: "free-snap",
     slides: {
       perView: 1.4,
       spacing: 15,
-      // origin: "center",
     },
     breakpoints: {
       "(min-width: 540px)": {
-        slides: { perView: 2.6, spacing: 20, origin: "center" },
+        slides: { perView: 2.6, spacing: 20 },
       },
       "(min-width: 1024px)": {
-        slides: { perView: 2.3, spacing: 25, origin: "center" },
+        slides: { perView: 2.3, spacing: 25 },
       },
     },
     vertical: true,
