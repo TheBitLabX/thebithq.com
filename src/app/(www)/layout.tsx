@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Open_Sans } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/lenis-provider";
 import Header from "@/components/Header";
