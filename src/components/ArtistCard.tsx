@@ -13,7 +13,7 @@ export default function ArtistCard({
   return (
     <Link
       href={url || "#"}
-      className='group card h-full rounded-3xl image-full md:w-full'
+      className='group card h-full rounded-3xl image-full'
     >
       <figure>
         <Image
