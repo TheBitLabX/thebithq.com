@@ -48,7 +48,9 @@ h5,
 h6 {
 	font-family: "Garet", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
 }
-
+.tbhq-header {
+	@apply !fixed top-0 z-50;
+}
 .tbhq-header[data-type="classic"] {
 	@apply w-full bg-orange-50;
 }
