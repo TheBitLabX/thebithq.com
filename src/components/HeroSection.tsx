@@ -82,7 +82,7 @@ export default function HeroSection({ isHomepage }: { isHomepage?: boolean }) {
               Supported by the Most Recognized Brands in the Industry
             </h2>
             <div
-              className='relative pb-12 lg:pb-20'
+              className='relative pb-12 lg:pb-20 overflow-x-hidden'
               style={{
                 background:
                   "linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 90%)",
