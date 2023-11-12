@@ -17,6 +17,7 @@
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-use-scroll-position": "^2.0.0",
     "tailwind-datepicker-react": "^1.4.3"
   },
   "devDependencies": {
