@@ -9,7 +9,7 @@ export default function HeroSection({ isHomepage }: { isHomepage?: boolean }) {
       <div>
         <Image
           className='w-full h-full absolute inset-0 object-cover object-center'
-          src='/img/hero_3.jpg'
+          src='/img/bg.jpg'
           alt='Hero'
           width={1280}
           height={853}
