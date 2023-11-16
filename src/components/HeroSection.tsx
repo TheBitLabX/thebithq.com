@@ -34,8 +34,8 @@ export default function HeroSection({ isHomepage }: { isHomepage?: boolean }) {
               Emma Robin
             </h1>
             <p className='text-base md:text-lg lg:text-xl xl:text-[1.4rem] font-light xl:leading-8 mb-4 lg:mb-10'>
-              Emma Robin | @emmarobinmusic is a 24 year old <br />
-              London-based, singer-songwriter from the Netherlands.
+              Emma Robin | A soul and pop sensation weaving captivating modern
+              beats with timeless lyrics
             </p>
             <div className='mb-10 lg:mb-0 lg:absolute lg:right-0 lg:bottom-10 xl:bottom-20'>
               <AboutArtist />
