@@ -33,7 +33,7 @@ export interface FeaturedArtistDetails {
 }
 
 export interface ArtistDetails {
-    id: number;
+    id: string;
     name: string;
     cover_img: string;
     song: string;
