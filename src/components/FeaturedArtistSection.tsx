@@ -26,16 +26,16 @@ export default function FeaturedArtistSection() {
     vertical: true,
   });
   return (
-    <div className="grid md:grid-rows-2 md:grid-cols-5 gap-4 lg:gap-6 mt-10 md:h-[500px]">
-      <div className="md:row-span-2 md:col-span-3 h-[200px] md:h-full">
+    <div className='grid md:grid-rows-2 md:grid-cols-5 gap-4 lg:gap-6 mt-10 md:h-[500px]'>
+      <div className='md:row-span-2 md:col-span-3 h-[200px] md:h-full'>
         <FeaturedArtist {...firstArtist} isFeatured />
       </div>
-      <div className="space-y-4 lg:space-y-6 md:col-span-2">
-        <div ref={sliderRef} className="keen-slider h-[300px] md:h-[500px]">
+      <div className='space-y-4 lg:space-y-6 md:col-span-2'>
+        <div ref={sliderRef} className='keen-slider h-[300px] md:h-[500px]'>
           {artists
-            .filter((artist) => artist.id !== 1)
+            .filter((artist) => artist.id != artists[0].id)
             .map((artist) => (
-              <div key={artist.id} className="keen-slider__slide h-200px">
+              <div key={artist.id} className='keen-slider__slide h-200px'>
                 <FeaturedArtist {...artist} />
               </div>
             ))}

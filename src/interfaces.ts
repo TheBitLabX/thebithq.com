@@ -26,7 +26,7 @@ export interface EventDetails {
 
 export interface FeaturedArtistDetails {
     isFeatured?: boolean;
-    id: number;
+    id: string;
     name: string;
     cover_img: string;
     url: string;
