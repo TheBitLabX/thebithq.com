@@ -14,10 +14,11 @@
     "gsap": "^3.12.2",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.290.0",
-    "next": "13.5.5",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "react-use-scroll-position": "^2.0.0",
+    "spotifly": "^0.1.1",
     "tailwind-datepicker-react": "^1.4.3"
   },
   "devDependencies": {
