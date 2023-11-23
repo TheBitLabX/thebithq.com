@@ -61,10 +61,7 @@ export default function PartnerLogos() {
     }, []);
 
   return (
-    <div
-      className='partners mt-6 z-10 flex flex-nowrap overflow-visible w-[600vh]'
-      style={{ maxWidth: "auto" }}
-    >
+    <div className='partners mt-6 z-10 flex flex-nowrap overflow-hidden w-[600vh]'>
       {Array.from({ length: 4 }, (_, i) => (
         <div
           key={i}

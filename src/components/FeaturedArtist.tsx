@@ -12,6 +12,7 @@ export default function FeaturedArtist({
     <Link
       href={url || "#"}
       className={`card w-full overflow-hidden rounded-3xl image-full h-full`}
+      target='_blank'
     >
       <figure>
         <Image
@@ -19,13 +20,16 @@ export default function FeaturedArtist({
           height={250}
           src={cover_img}
           alt={`${name}'s Image`}
-          className="object-cover w-full h-full"
+          objectPosition='top'
+          className='object-cover w-full h-full'
         />
       </figure>
-      <div className="card-body hover:bg-black/70 transition duration-200 bg-black/50 rounded-3xl grid place-items-center">
+      <div className='card-body hover:bg-black/70 transition duration-200 bg-black/50 rounded-3xl grid place-items-center'>
         <h2
           className={`card-title text-white ${
-            isFeatured ? "font-garet text-3xl md:text-4xl lg:text-5xl" : "text-xl md:text-2xl lg:text-3xl"
+            isFeatured
+              ? "font-garet text-3xl md:text-4xl lg:text-5xl"
+              : "text-xl md:text-2xl lg:text-3xl"
           }`}
         >
           {name}

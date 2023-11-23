@@ -76,7 +76,10 @@ export default function About() {
               <h5 className='font-semibold text-lg md:text-xl lg:text-2xl xl:text-3xl mb-2'>
                 Contact Us
               </h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>
+                Got questions, enquires or feedback? We’d love to hear from you!
+                Just fill out the form below
+              </p>
 
               <form className='space-y-4 mt-6' action=''>
                 <div className='form-control w-full'>

@@ -13,6 +13,7 @@ export default function ArtistCard({
   return (
     <Link
       href={url || "#"}
+      target='_blank'
       className='group card h-full rounded-3xl image-full w-full'
     >
       <figure>
