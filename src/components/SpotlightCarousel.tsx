@@ -3,7 +3,9 @@
 import ArtistCard from "./ArtistCard";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { artists } from "@/data";
+import { artistsSpotifyUrls } from "@/data";
+import useSpotifyArtists from "@/utils/artists";
+import { ArtistDetails } from "@/interfaces";
 
 export default function SpotlightCarousel() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -25,18 +27,25 @@ export default function SpotlightCarousel() {
       },
     },
   });
-  return (
-    <div ref={sliderRef} className="keen-slider">
-      {artists.map((artist) => (
-        <div
-          key={`artist-${artist.id}`}
-          className="keen-slider__slide"
-        >
-          <div className="relative h-96 flex justify-center items-center">
+
+  const { artistsData, isLoading, error } =
+    useSpotifyArtists(artistsSpotifyUrls);
+
+  if (isLoading) return <div>Loading...</div>;
+  return error ? (
+    <div>Error: {error}</div>
+  ) : (
+    <div ref={sliderRef} className='keen-slider'>
+      {Object.values(artistsData).map((artist: ArtistDetails) => {
+        
+        return (
+          <div key={`artist-${artist.id}`} className='keen-slider__slide'>
+            <div className='relative h-96 flex justify-center items-center'>
               <ArtistCard {...artist} />
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
