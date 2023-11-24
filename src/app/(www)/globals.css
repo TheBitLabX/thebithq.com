@@ -197,3 +197,24 @@ h6 {
 	-webkit-animation-delay: 0s;
 	/* Safari 和 Chrome */
 }
+@keyframes scroll {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.logo-container {
+	display: flex;
+	white-space: nowrap;
+	animation: scroll 30s linear infinite;
+}
+
+.logo {
+	/* Add styles for your logos here */
+	margin: 0 20px;
+	/* Adjust as needed */
+}
