@@ -10,39 +10,39 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className=''>
       <HeroSection isHomepage />
 
-      <section className="py-12 bg-base-100">
-        <div className="container">
-          <div className="lg:flex lg:space-x-6 lg:items-end lg:justify-between">
+      <section className='py-12 bg-base-100'>
+        <div className='container'>
+          <div className='lg:flex lg:space-x-6 lg:items-end lg:justify-between'>
             <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
                 Artist Spotlight
               </h2>
-              <p className="text-lg mt-3">
+              <p className='text-lg mt-3'>
                 Meet the creative forces defining today&apos;s music. Dive into
                 their artistic journeys, one profile at a time.
               </p>
             </div>
-            <div className="hidden lg:block">
+            <div className='hidden lg:block'>
               <Link
-                href="/trends"
-                className="btn btn-primary btn-outline rounded-xl"
+                href='/trends'
+                className='btn btn-primary btn-outline rounded-xl'
               >
                 Discover More
               </Link>
             </div>
           </div>
 
-          <div className="mt-10">
+          <div className='mt-10'>
             <SpotlightCarousel />
           </div>
 
-          <div className="lg:hidden mt-6 text-center">
+          <div className='lg:hidden mt-6 text-center'>
             <Link
-              href="/trends"
-              className="btn btn-primary btn-outline rounded-xl"
+              href='/trends'
+              className='btn btn-primary btn-outline rounded-xl'
             >
               Discover More
             </Link>
@@ -50,40 +50,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 bg-base-100">
-        <div className="container">
-          <div className="">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+      <section className='py-12 bg-base-100'>
+        <div className='container'>
+          <div className=''>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
               Discover the Artistic Edge
             </h2>
-            <p className="text-lg mt-3">
+            <p className='text-lg mt-3'>
               Empowering Artists and Brands: Unlock the Limitless Potential of
               Our Services
             </p>
           </div>
 
-          <div className="mt-10">
+          <div className='mt-10'>
             <DiscoverScrollTabs />
           </div>
         </div>
       </section>
 
-      <section className="py-12 bg-base-100">
-        <div className="container">
-          <div className="lg:flex lg:space-x-6 lg:items-end lg:justify-between">
-            <div className="max-w-4xl">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+      <section className='py-12 bg-base-100'>
+        <div className='container'>
+          <div className='lg:flex lg:space-x-6 lg:items-end lg:justify-between'>
+            <div className='max-w-4xl'>
+              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
                 Inspiring Stories and Insights from the Artists’ World
               </h2>
-              <p className="text-lg mt-3">
+              <p className='text-lg mt-3'>
                 Stay Updated: Discover the Latest Trends and Artists Shaping the
                 Music Industry
               </p>
             </div>
-            <div className="hidden lg:block">
+            <div className='hidden lg:block'>
               <Link
-                href="/blogs"
-                className="btn btn-primary btn-outline rounded-xl"
+                href='/blogs'
+                className='btn btn-primary btn-outline rounded-xl'
               >
                 See More
               </Link>
@@ -92,10 +92,10 @@ export default function Home() {
 
           <StoriesSection />
 
-          <div className="lg:hidden mt-6 text-center">
+          <div className='lg:hidden mt-6 text-center'>
             <Link
-              href="/blogs"
-              className="btn btn-primary btn-outline rounded-xl"
+              href='/blogs'
+              className='btn btn-primary btn-outline rounded-xl'
             >
               See More
             </Link>
@@ -103,7 +103,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 bg-base-100">
+      {/* <section className="py-12 bg-base-100">
         <div className="container">
           <div className="lg:flex lg:space-x-6 lg:items-end lg:justify-between">
             <div>
@@ -139,7 +139,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <section className="py-12 bg-base-100">
         <div className="container">
@@ -157,12 +157,12 @@ export default function Home() {
         </div>
       </section> */}
 
-      <section className="py-12 bg-base-100 overflow-hidden">
-        <div className="container">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+      <section className='py-12 bg-base-100 overflow-hidden'>
+        <div className='container'>
+          <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
             Featured Artist
           </h2>
-          <p className="text-lg mt-3">
+          <p className='text-lg mt-3'>
             Spotlight on Talent: Meet the Diverse Artists Featured in Our
             Project
           </p>
