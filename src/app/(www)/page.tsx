@@ -2,7 +2,7 @@ import DiscoverScrollTabs from "@/components/DiscoverScrollTabs";
 import SubscribeSection from "@/components/SubscribeSection";
 import SpotlightCarousel from "@/components/SpotlightCarousel";
 import StoriesSection from "@/components/StoriesSection";
-import EventCarousel from "@/components/EventCarousel";
+//import EventCarousel from "@/components/EventCarousel";
 import FeaturedArtistSection from "@/components/FeaturedArtistSection";
 import HeroSection from "@/components/HeroSection";
 import Link from "next/link";

@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MenuIcon, XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useScrollYPosition } from "react-use-scroll-position";
 
 const projects = [
   // {
@@ -36,7 +35,7 @@ const projects = [
 const navItems: { label: string; url?: string }[] = [
   { label: "About Us", url: "/about" },
   { label: "Blogs ", url: "/blogs" },
-  { label: "Contact Us", url: "/contact" },
+  { label: "Contact Us", url: "/trends" },
 ];
 
 export default function Header() {
@@ -44,17 +43,30 @@ export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [headerType, setHeaderType] = useState("overlay");
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     setHeaderType(pathname === "/" ? "overlay" : "classic");
     setIsOpen(false);
   }, [pathname]);
 
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header
       className={`tbhq-header`}
-      data-type={useScrollYPosition() > 0 ? "classic" : headerType}
+      data-type={scrollPosition > 0 ? "classic" : headerType}
     >
       <div
         className={`container transition-all duration-300 ${
@@ -100,7 +112,7 @@ export default function Header() {
             <Link href={"/"} className='w-40 inline-block'>
               <Image
                 src={
-                  useScrollYPosition() > 0
+                  scrollPosition > 0
                     ? `/img/svg/logo_black.svg`
                     : headerType === "overlay"
                     ? `/img/svg/logo.svg`

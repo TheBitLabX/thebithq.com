@@ -5,7 +5,7 @@ import PartnerLogos from "./PartnerLogos";
 
 export default function HeroSection({ isHomepage }: { isHomepage?: boolean }) {
   return (
-    <section className='relative'>
+    <section className='relative w-[100%]'>
       <div>
         <Image
           className='w-full h-full absolute inset-0 object-cover object-center'
@@ -83,7 +83,7 @@ export default function HeroSection({ isHomepage }: { isHomepage?: boolean }) {
               Supported by the Most Recognized Brands in the Industry
             </h2>
             <div
-              className='relative pb-12 lg:pb-20 overflow-x-hidden'
+              className='relative pb-12 lg:pb-20 overflow-x-hidden w-[100%]'
               style={{
                 background:
                   "linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 90%)",
