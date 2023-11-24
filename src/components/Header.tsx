@@ -35,7 +35,7 @@ const projects = [
 const navItems: { label: string; url?: string }[] = [
   { label: "About Us", url: "/about" },
   { label: "Blogs ", url: "/blogs" },
-  { label: "Contact Us", url: "/trends" },
+  { label: "Contact Us", url: "/contact" },
 ];
 
 export default function Header() {
