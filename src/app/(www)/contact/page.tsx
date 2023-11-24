@@ -1,9 +1,23 @@
+"use client";
 import { faqs } from "@/data";
+import useSendEmail from "@/utils/useSendEmail";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function About() {
+export default function Contact() {
+  const [name, setName] = useState<string>("");
+  const [check, setCheck] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const { sendEmail, isLoading, error, result } = useSendEmail();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await sendEmail({ name, email, message });
+  };
+
   return (
     <main>
       <section className='relative py-12 h-[30rem] bg-black grid place-content-center pt-[170px]'>
@@ -33,14 +47,16 @@ export default function About() {
               <MailIcon />
               <div>
                 <h6 className='font-semibold text-lg xl:text-2xl'>Email</h6>
-                <p className='mt-2 lg:text-lg'>info@thebithq.com</p>
+                <p className='mt-2 lg:text-lg'><Link href={"mailto:info@thebithq.com"}>info@thebithq.com</Link></p>
               </div>
             </div>
             <div className='flex space-x-3'>
               <PhoneIcon />
               <div>
                 <h6 className='font-semibold text-lg xl:text-2xl'>Phone</h6>
-                <p className='mt-2 lg:text-lg'>+447456446467</p>
+                <p className='mt-2 lg:text-lg'>
+                  <Link href={"telto:+447456446467"}>+447456446467</Link>
+                </p>
               </div>
             </div>
             <div className='flex space-x-3'>
@@ -81,13 +97,15 @@ export default function About() {
                 Just fill out the form below
               </p>
 
-              <form className='space-y-4 mt-6' action=''>
+              <form className='space-y-4 mt-6' onSubmit={handleSubmit}>
                 <div className='form-control w-full'>
                   <label className='pb-1 label'>Name</label>
                   <input
                     type='text'
                     required
                     placeholder='Enter your name'
+                    value={result == null ? name : ""}
+                    onChange={(e) => setName(e.target.value)}
                     className='input input-bordered w-full border-zinc-400 rounded-md'
                   />
                 </div>
@@ -97,6 +115,8 @@ export default function About() {
                     type='email'
                     required
                     placeholder='Enter your email'
+                    value={result == null ? email : ""}
+                    onChange={(e) => setEmail(e.target.value)}
                     className='input input-bordered w-full border-zinc-400 rounded-md'
                   />
                 </div>
@@ -105,24 +125,41 @@ export default function About() {
                   <textarea
                     required
                     className='textarea textarea-bordered border-zinc-400 rounded-md'
-                    placeholder='Bio'
+                    placeholder='type your message here'
+                    value={result == null ? message : ""}
+                    onChange={(e) => setMessage(e.target.value)}
                   ></textarea>
                 </div>
                 <div className='form-control'>
                   <label className='pb-1 label items-center justify-start space-x-3 cursor-pointer'>
-                    <input required type='checkbox' className='w-4 h-4' />
+                    <input
+                      required
+                      type='checkbox'
+                      className='w-4 h-4'
+                      onChange={(e) => setCheck(e.target.checked!)}
+                      checked={result == null ? check : false}
+                    />
                     <span className='label-text text-zinc-700'>
                       I accept the{" "}
                       <Link className='!lowercase' href={`#`}>
-                        terms
+                        Terms and Conditions.
                       </Link>
                     </span>
                   </label>
                 </div>
 
-                <button className='btn btn-primary btn-block lg:btn-wide'>
+                <button
+                  className='btn btn-primary btn-block lg:btn-wide'
+                  type='submit'
+                  disabled={isLoading || !check}
+                >
                   Submit
                 </button>
+                <div className='W-full block mt-[15px]'>
+                  {isLoading && <p>Sending message...</p>}
+                  {result && <p>Message Sent successfully!</p>}
+                  {error && <p>Error: {error}</p>}
+                </div>
               </form>
             </div>
           </div>

@@ -49,7 +49,8 @@ export default function HeroSection({ isHomepage }: { isHomepage?: boolean }) {
                 View Blog
               </Link>
               <Link
-                href='/profile'
+                href='https://open.spotify.com/artist/1lKpEqady4EQ8wz5ZpJCuU'
+                target='_blank'
                 role='button'
                 className='btn btn-primary px-10 btn-block md:w-auto'
               >
