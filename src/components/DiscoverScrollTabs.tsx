@@ -88,14 +88,14 @@ export default function DiscoverScrollTabs() {
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
-    // mode: "free-snap",
+    mode: "snap",
     slides: {
       perView: 1,
       spacing: 10,
     },
     breakpoints: {
       "(min-width: 540px)": {
-        slides: { perView: 2.2, spacing: 20 },
+        slides: { perView: 2.9, spacing: 20 },
       },
       "(min-width: 1024px)": {
         slides: { perView: 2.9, spacing: 25 },
