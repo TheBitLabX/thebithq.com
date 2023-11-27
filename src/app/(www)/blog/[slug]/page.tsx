@@ -17,6 +17,8 @@ import FeaturedArtist from "@/components/FeaturedArtist";
 import { blogs, artists } from "@/data";
 import useCosmicBlogPost from "@/utils/useGetPostBySlug";
 import { usePathname } from "next/navigation";
+import DOMPurify from "dompurify";
+
 
 export default function BlogDetails() {
   const pathname = usePathname();
@@ -27,6 +29,7 @@ export default function BlogDetails() {
     error,
     data: post,
   } = useCosmicBlogPost(pathname.split("/blog/")[1]);
+  const safeHtml = DOMPurify.sanitize(post?.metadata.content);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -90,11 +93,11 @@ export default function BlogDetails() {
             </div>
           </div>
 
-          <section className='grid lg:grid-cols-3 lg:divide-x gap-6 mt-10'>
+          <section className='grid lg:grid-cols-2 lg:divide-x gap-6 mt-10'>
             <div className='lg:col-span-2'>
               <article
                 className='prose !min-w-full prose-p:text-zinc-800 prose-h2:text-zinc-800'
-                dangerouslySetInnerHTML={{ __html: post.metadata.content }}
+                dangerouslySetInnerHTML={{ __html: safeHtml }}
               ></article>
 
               <div className='comments mt-12'>
@@ -167,7 +170,7 @@ export default function BlogDetails() {
                   ))}
 
                   <div className='mt-5 pt-6'>
-                    <p className='text-zinc-800 text-lg mb-2'>
+                    {/* <p className='text-zinc-800 text-lg mb-2'>
                       Sign In/Sign Up to join the conversation
                     </p>
                     <p className='text-sm'>
@@ -186,17 +189,17 @@ export default function BlogDetails() {
                         sign in
                       </a>
                       &nbsp; to an account
-                    </p>
+                    </p> */}
                     <div className='space-x-3 mt-6'>
                       <Link
-                        href='#'
+                        href='/auth/login'
                         role='button'
                         className='btn btn-primary px-5'
                       >
                         Sign In
                       </Link>
                       <Link
-                        href='#'
+                        href='/auth/login'
                         role='button'
                         className='btn btn-primary px-5 btn-outline'
                       >
@@ -207,7 +210,7 @@ export default function BlogDetails() {
                 </div>
               </div>
             </div>
-            <div className='hidden lg:block lg:pl-6'>
+            {/* <div className='hidden lg:block lg:pl-6'>
               <div className='space-y-4 lg:space-y-6 '>
                 {artists.map((artist) => (
                   <div key={artist.id} className='h-[200px]'>
@@ -252,7 +255,7 @@ export default function BlogDetails() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </section>
 
           {/* <section className='py-16 md:py-20 xl:py-24'>
