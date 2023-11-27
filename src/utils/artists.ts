@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {ArtistDetails} from '@/interfaces';
-import { artists } from '../data';
 
 type Artist = {
     id: string;

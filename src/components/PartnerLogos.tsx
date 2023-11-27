@@ -1,7 +1,4 @@
-"use client";
 import React, { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 
 type PartnerLogosProps = {
@@ -31,6 +28,16 @@ const PartnerLogosCo: React.FC<PartnerLogosProps> = ({ logos }) => {
         />
       ))}
       {/* Duplicate the logos for a seamless loop */}
+      {logos.map((logo, index) => (
+        <Image
+          key={`duplicate-${index}`}
+          src={logo}
+          alt={`Partner Logo ${index}`}
+          className='logo'
+          width={183}
+          height={83}
+        />
+      ))}
       {logos.map((logo, index) => (
         <Image
           key={`duplicate-${index}`}
