@@ -1,3 +1,5 @@
+"use client";
+
 import BlogCard from "@/components/BlogCard";
 import SocialShare from "@/components/SocialShare";
 import {
@@ -13,8 +15,23 @@ import SpotlightCarousel from "@/components/SpotlightCarousel";
 import SubscribeSection from "@/components/SubscribeSection";
 import FeaturedArtist from "@/components/FeaturedArtist";
 import { blogs, artists } from "@/data";
+import useCosmicBlogPost from "@/utils/useGetPostBySlug";
+import { usePathname } from "next/navigation";
 
 export default function BlogDetails() {
+  const pathname = usePathname();
+
+  console.log(pathname);
+  const {
+    loading,
+    error,
+    data: post,
+  } = useCosmicBlogPost(pathname.split("/blog/")[1]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!post) return <div>Post not found</div>;
+
   return (
     <main>
       <section className='py-10 pb-6 pt-[170px]'>
@@ -27,7 +44,7 @@ export default function BlogDetails() {
             Back One Step
           </Link>
           <h1 className='text-black text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold'>
-            The Faces of the Artistic Renaissance
+            {post.title}
           </h1>
         </div>
       </section>
@@ -37,14 +54,14 @@ export default function BlogDetails() {
           <div className='space-y-5'>
             <div className='md:flex md:justify-between md:items-center'>
               <p>
-                <strong>Posted On:</strong>&nbsp; 05 June 2023
+                <strong>Posted On:</strong>&nbsp; {post.metadata.date}
               </p>
               <SocialShare />
             </div>
             <figure className='h-96 w-full overflow-hidden rounded-2xl'>
               <Image
                 className='h-full w-full object-cover object-top-right'
-                src={`/img/artist.jpeg`}
+                src={`${post.metadata.cover_img.url}`}
                 alt='The Faces of the Artistic Renaissance Cover Image'
                 width={1440}
                 height={520}
@@ -62,9 +79,7 @@ export default function BlogDetails() {
                   />
                 </div>
                 <div>
-                  <p className='text-neutral-600 font-semibold'>
-                    Suka Sounds Labels
-                  </p>
+                  <p className='text-neutral-600 font-semibold'>BitHQ</p>
                   <p className='font-light text-stone-400'>2k Followers</p>
                 </div>
               </div>
@@ -77,90 +92,10 @@ export default function BlogDetails() {
 
           <section className='grid lg:grid-cols-3 lg:divide-x gap-6 mt-10'>
             <div className='lg:col-span-2'>
-              <article className='prose !min-w-full prose-p:text-zinc-800 prose-h2:text-zinc-800'>
-                <h2>Introduction</h2>
-                <p>
-                  Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam
-                  suspendisse morbi eleifend faucibus eget vestibulum felis.
-                  Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam.
-                  Mauris posuere vulputate arcu amet, vitae nisi, tellus
-                  tincidunt. At feugiat sapien varius id.
-                </p>
-                <p>
-                  Eget quis mi enim, leo lacinia pharetra, semper. Eget in
-                  volutpat mollis at volutpat lectus velit, sed auctor.
-                  Porttitor fames arcu quis fusce augue enim. Quis at habitant
-                  diam at. Suscipit tristique risus, at donec. In turpis vel et
-                  quam imperdiet. Ipsum molestie aliquet sodales id est ac
-                  volutpat.
-                </p>
-
-                <p className='lead'>
-                  Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum,
-                  nulla odio nisl vitae. In aliquet pellentesque aenean hac
-                  vestibulum turpis mi bibendum diam. Tempor integer aliquam in
-                  vitae malesuada fringilla.
-                </p>
-                <figure className='max-h-[500px] w-full overflow-hidden rounded-2xl'>
-                  <Image
-                    className='object-cover w-full h-full'
-                    src={`/img/blog-image.png`}
-                    width={768}
-                    height={500}
-                    alt='Blog Image'
-                  />
-                </figure>
-
-                <p>
-                  Collaboratively deploy intuitive partnerships whereas
-                  customized e-markets. Energistically maintain performance
-                  based strategic theme areas whereas just in time
-                  methodologies. Phosfluorescently drive functionalized
-                  intellectual capital and.
-                </p>
-
-                <blockquote className='text-lg'>
-                  <p>
-                    Collaboratively deploy intuitive partnerships whereas
-                    customized e-markets. Energistically maintain performance
-                    based strategic theme areas whereas just in time
-                    methodologies. Phosfluorescently drive functionalized
-                    intellectual capital and.
-                  </p>
-                </blockquote>
-
-                <p>
-                  Tristique odio senectus nam posuere ornare leo metus,
-                  ultricies. Blandit duis ultricies vulputate morbi feugiat cras
-                  placerat elit. Aliquam tellus lorem sed ac. Montes, sed mattis
-                  pellentesque suscipit accumsan. Cursus viverra aenean magna
-                  risus elementum faucibus molestie pellentesque. Arcu ultricies
-                  sed mauris vestibulum.
-                </p>
-
-                <h2>Conclusion</h2>
-                <p>
-                  Morbi sed imperdiet in ipsum, adipiscing elit dui lectus.
-                  Tellus id scelerisque est ultricies ultricies. Duis est sit
-                  sed leo nisl, blandit elit sagittis. Quisque tristique
-                  consequat quam sed. Nisl at scelerisque amet nulla purus
-                  habitasse.
-                </p>
-                <p>
-                  Nunc sed faucibus bibendum feugiat sed interdum. Ipsum egestas
-                  condimentum mi massa. In tincidunt pharetra consectetur sed
-                  duis facilisis metus. Etiam egestas in nec sed et. Quis
-                  lobortis at sit dictum eget nibh tortor commodo cursus.
-                </p>
-                <p>
-                  Odio felis sagittis, morbi feugiat tortor vitae feugiat fusce
-                  aliquet. Nam elementum urna nisi aliquet erat dolor enim.
-                  Ornare id morbi eget ipsum. Aliquam senectus neque ut id eget
-                  consectetur dictum. Donec posuere pharetra odio consequat
-                  scelerisque et, nunc tortor. Nulla adipiscing erat a erat.
-                  Condimentum lorem posuere gravida enim posuere cursus diam.
-                </p>
-              </article>
+              <article
+                className='prose !min-w-full prose-p:text-zinc-800 prose-h2:text-zinc-800'
+                dangerouslySetInnerHTML={{ __html: post.metadata.content }}
+              ></article>
 
               <div className='comments mt-12'>
                 <h3 className='text-zinc-500 font-semibold xl:text-lg'>
@@ -320,7 +255,7 @@ export default function BlogDetails() {
             </div>
           </section>
 
-          <section className='py-16 md:py-20 xl:py-24'>
+          {/* <section className='py-16 md:py-20 xl:py-24'>
             <div className='max-w-4xl'>
               <h2 className='text-2xl md:text-3xl lg:text-4xl font-bold'>
                 Similar topics
@@ -335,7 +270,7 @@ export default function BlogDetails() {
                 <BlogCard key={blog.id} {...(blog as BlogDetails)} />
               ))}
             </div>
-          </section>
+          </section> */}
 
           <section className='py-12 bg-base-100'>
             <div className='container'>

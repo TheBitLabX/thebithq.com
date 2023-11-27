@@ -9,24 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cosmicjs/sdk": "^1.0.10",
     "@icons-pack/react-simple-icons": "^9.1.0",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@studio-freight/react-lenis": "^0.0.36",
     "@types/axios": "^0.14.0",
-    "add": "^2.0.6",
     "axios": "^1.6.2",
-    "googleapis": "^128.0.0",
     "gsap": "^3.12.2",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.290.0",
+    "mammoth": "^1.6.0",
     "next": "latest",
     "nodemailer": "^6.9.7",
+    "quill-image-resize-module": "^3.0.0",
+    "quill-image-resize-module--fix-imports-error": "^3.0.0",
     "react": "latest",
     "react-dom": "latest",
+    "react-markdown": "^9.0.1",
+    "react-quill": "^2.0.0",
     "react-use-scroll-position": "^2.0.0",
-    "spotifly": "^0.1.1",
     "tailwind-datepicker-react": "^1.4.3",
-    "yarn": "^1.22.21"
+    "turndown": "^7.1.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
