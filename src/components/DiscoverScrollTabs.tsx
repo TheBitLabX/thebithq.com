@@ -106,17 +106,17 @@ export default function DiscoverScrollTabs() {
   });
 
   return (
-    <div>
-      <div className="lg:hidden">
-        <div ref={sliderRef} className="keen-slider">
+    <div className='mt-10'>
+      <div className='lg:hidden'>
+        <div ref={sliderRef} className='keen-slider'>
           {tabs.map(({ id, image }) => (
-            <div key={`feature-${id}`} className="keen-slider__slide">
-              <div className="relative h-96 flex justify-center items-center">
+            <div key={`feature-${id}`} className='keen-slider__slide'>
+              <div className='relative h-96 flex justify-center items-center'>
                 <Image
                   src={image}
                   width={580}
                   height={640}
-                  alt="Feature Image"
+                  alt='Feature Image'
                 />
               </div>
             </div>
@@ -124,48 +124,50 @@ export default function DiscoverScrollTabs() {
         </div>
       </div>
 
-      <div className="gallery lg:flex">
-        <div className="left w-full lg:w-1/2 pt-4">
-          <div className="mb-0">
+      <div className='gallery lg:flex'>
+        <div className='left w-full lg:w-1/2 pt-4'>
+          <div className='mb-0'>
             {tabs.map(({ id, title, desc }) => (
               <div key={id}>
                 <a
-                  role="button"
+                  role='button'
                   className={`hidden lg:block mb-6 border-l-2 border-transparent pl-5 py-2`}
                   href={`#tabNav${id}`}
                 >
-                  <h2 className="text-lg md:text-xl lg:text-2xl text-zinc-700 font-semibold">
+                  <h2 className='text-lg md:text-xl lg:text-2xl text-zinc-700 font-semibold'>
                     {title}
                   </h2>
-                  <p className="xl:text-lg mt-3 pr-12 font-light normal-case">{desc}</p>
+                  <p className='xl:text-lg mt-3 pr-12 font-light normal-case'>
+                    {desc}
+                  </p>
                 </a>
                 <div
                   key={id}
                   className={`lg:hidden mb-6 flex items-start space-x-5 py-2`}
                 >
-                  <ChevronRightIcon className="h-6 w-6 mt-1 flex-none" />
+                  <ChevronRightIcon className='h-6 w-6 mt-1 flex-none' />
                   <div>
-                    <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">
+                    <h2 className='text-lg md:text-xl lg:text-2xl font-semibold'>
                       {title}
                     </h2>
-                    <p className="xl:text-lg mt-3 normal-case">{desc}</p>
+                    <p className='xl:text-lg mt-3 normal-case'>{desc}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="right hidden lg:block w-1/2 pt-4">
-          <div className="w-full lg:pl-6">
+        <div className='right hidden lg:block w-1/2 pt-4'>
+          <div className='w-full lg:pl-6'>
             {tabs.map(({ id, image }) => (
               <Image
                 key={id}
                 id={`tabNav${id}`}
-                className="mb-10 last:mb-0"
+                className='mb-10 last:mb-0'
                 src={image}
                 width={580}
                 height={640}
-                alt="Tab Image"
+                alt='Tab Image'
               />
             ))}
           </div>

@@ -52,7 +52,7 @@ export default function Home() {
 
       <section className='py-12 bg-base-100'>
         <div className='container'>
-          <div className=''>
+          <div className='z-10'>
             <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
               Discover the Artistic Edge
             </h2>
@@ -61,10 +61,7 @@ export default function Home() {
               Our Services
             </p>
           </div>
-
-          <div className='mt-10'>
-            <DiscoverScrollTabs />
-          </div>
+          <DiscoverScrollTabs />
         </div>
       </section>
 
