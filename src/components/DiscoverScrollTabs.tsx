@@ -41,14 +41,23 @@ export default function DiscoverScrollTabs() {
   ];
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)"); // For desktop upwards
+    let isDesktop = mediaQuery.matches;
+
+    ScrollTrigger.refresh();
+
     const pin = ScrollTrigger.create({
       trigger: ".gallery",
-      start: "top top", // when the top of the trigger hits the top of the viewport
-      end: "bottom bottom",
+      start: "top top+=160px",
+      end: "bottom bottom+=60px",
       pin: ".left", // pin the trigger element while active
-      // markers: true
+      // markers: true,
       // onToggle: (self) => self.isActive && setActive(a),
     });
+
+    if (!isDesktop) {
+      return pin.kill();
+    }
 
     const links = gsap.utils.toArray(".left a");
     links.forEach((a: any) => {
@@ -78,10 +87,8 @@ export default function DiscoverScrollTabs() {
       links.forEach((el: any) => el.classList.remove("!border-primary"));
       link.classList.add("!border-primary");
     }
+
     return () => {
-      {
-        /* A return function for killing the animation on component unmount */
-      }
       pin.kill();
     };
   }, []);
@@ -89,7 +96,7 @@ export default function DiscoverScrollTabs() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     mode: "snap",
     slides: {
-      perView: 1,
+      perView: 1.1,
       spacing: 10,
     },
     breakpoints: {
@@ -106,17 +113,18 @@ export default function DiscoverScrollTabs() {
   });
 
   return (
-    <div className='mt-10'>
-      <div className='lg:hidden'>
-        <div ref={sliderRef} className='keen-slider'>
+    <div className="mt-10">
+      <div className="lg:hidden">
+        <div ref={sliderRef} className="keen-slider">
           {tabs.map(({ id, image }) => (
-            <div key={`feature-${id}`} className='keen-slider__slide'>
-              <div className='relative h-96 flex justify-center items-center'>
+            <div key={`feature-${id}`} className="keen-slider__slide">
+              <div className="relative h-96 flex justify-center items-center">
                 <Image
                   src={image}
                   width={580}
                   height={640}
-                  alt='Feature Image'
+                  alt="Feature Image"
+                  className="h-full rounded-lg object-cover"
                 />
               </div>
             </div>
@@ -124,20 +132,20 @@ export default function DiscoverScrollTabs() {
         </div>
       </div>
 
-      <div className='gallery lg:flex'>
-        <div className='left w-full lg:w-1/2 pt-4'>
-          <div className='mb-0'>
+      <div className="gallery lg:flex">
+        <div className="left w-full lg:w-1/2 pt-4">
+          <div className="mb-0">
             {tabs.map(({ id, title, desc }) => (
               <div key={id}>
                 <a
-                  role='button'
+                  role="button"
                   className={`hidden lg:block mb-6 border-l-2 border-transparent pl-5 py-2`}
                   href={`#tabNav${id}`}
                 >
-                  <h2 className='text-lg md:text-xl lg:text-2xl text-zinc-700 font-semibold'>
+                  <h2 className="text-lg md:text-xl lg:text-2xl text-zinc-700 font-semibold">
                     {title}
                   </h2>
-                  <p className='xl:text-lg mt-3 pr-12 font-light normal-case'>
+                  <p className="xl:text-lg mt-3 pr-12 font-light normal-case">
                     {desc}
                   </p>
                 </a>
@@ -145,29 +153,29 @@ export default function DiscoverScrollTabs() {
                   key={id}
                   className={`lg:hidden mb-6 flex items-start space-x-5 py-2`}
                 >
-                  <ChevronRightIcon className='h-6 w-6 mt-1 flex-none' />
+                  <ChevronRightIcon className="h-6 w-6 mt-1 flex-none" />
                   <div>
-                    <h2 className='text-lg md:text-xl lg:text-2xl font-semibold'>
+                    <h2 className="text-lg md:text-xl lg:text-2xl font-semibold">
                       {title}
                     </h2>
-                    <p className='xl:text-lg mt-3 normal-case'>{desc}</p>
+                    <p className="xl:text-lg mt-3 normal-case">{desc}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className='right hidden lg:block w-1/2 pt-4'>
-          <div className='w-full lg:pl-6'>
+        <div className="right hidden lg:block w-1/2 pt-4">
+          <div className="w-full lg:pl-6">
             {tabs.map(({ id, image }) => (
               <Image
                 key={id}
                 id={`tabNav${id}`}
-                className='mb-10 last:mb-0'
+                className="mb-10 last:mb-0"
                 src={image}
                 width={580}
                 height={640}
-                alt='Tab Image'
+                alt="Tab Image"
               />
             ))}
           </div>

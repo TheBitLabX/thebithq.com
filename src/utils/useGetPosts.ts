@@ -32,7 +32,7 @@ const useCosmicBlogPosts = (): UseCosmicBlogPostsReturn => {
           .props("slug,title,metadata")
           .depth(1);
 
-        console.log(response.objects[0].metadata.cover_img.url)
+        // console.log(response.objects[0].metadata.cover_img.url)
         setData(response.objects as BlogPost[]);
       } catch (err) {
         setError(err as Error);

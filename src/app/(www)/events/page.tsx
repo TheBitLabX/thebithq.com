@@ -52,7 +52,7 @@ export default function Events() {
 
   const [show, setShow] = useState(true);
   const handleChange = (selectedDate: Date) => {
-    console.log(selectedDate);
+    // console.log(selectedDate);
   };
   const handleClose = (state: boolean) => {
     setShow(state);
