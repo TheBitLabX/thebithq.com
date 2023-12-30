@@ -36,7 +36,7 @@ const useCosmicBlogPost = (slug: string): UseCosmicBlogPostReturn => {
         }).props("slug,title,metadata")
         .depth(1);
 
-        console.log(response.object)
+        // console.log(response.object)
         setData(response.object as BlogPostDetails);
       } catch (err) {
         setError(err as Error);

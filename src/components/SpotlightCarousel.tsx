@@ -6,6 +6,7 @@ import "keen-slider/keen-slider.min.css";
 import { artistsSpotifyUrls } from "@/data";
 import useSpotifyArtists from "@/utils/artists";
 import { ArtistDetails } from "@/interfaces";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function SpotlightCarousel() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -35,17 +36,18 @@ export default function SpotlightCarousel() {
   return error ? (
     <div>Error: {error}</div>
   ) : (
-    <div ref={sliderRef} className='keen-slider'>
+    <div ref={sliderRef} className="keen-slider">
       {Object.values(artistsData).map((artist: ArtistDetails) => {
-        
+        ScrollTrigger.refresh();
         return (
-          <div key={`artist-${artist.id}`} className='keen-slider__slide'>
-            <div className='relative h-96 flex justify-center items-center'>
+          <div key={`artist-${artist.id}`} className="keen-slider__slide">
+            <div className="relative h-96 flex justify-center items-center">
               <ArtistCard {...artist} />
             </div>
           </div>
         );
       })}
     </div>
+    
   );
 }

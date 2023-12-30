@@ -29,8 +29,7 @@ const useSpotifyArtists = (artistIds: string[]): UseSpotifyArtistsReturn => {
           const params = new URLSearchParams();
           params.append('grant_type', 'client_credentials');
 
-
-          console.log(process.env.SPOTIFY_CLIENT_ID);
+        //   console.log(process.env.SPOTIFY_CLIENT_ID);
       
           const headers = {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -52,7 +51,7 @@ const useSpotifyArtists = (artistIds: string[]): UseSpotifyArtistsReturn => {
                 headers: { Authorization: `Bearer ${accessToken}` }
             });
 
-            console.log(response.data.artists[0]);
+            // console.log(response.data.artists[0]);
             return response.data.artists;
         } catch (error) {
             console.error('Error fetching artists data', error);

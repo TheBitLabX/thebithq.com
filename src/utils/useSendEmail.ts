@@ -28,7 +28,7 @@ const useSendEmail = (): UseSendEmailReturn => {
         email:email, name: name, message:message
       };
 
-      console.log(payload);
+      // console.log(payload);
 
       // Replace this URL with your server-side endpoint or third-party email service API endpoint.
       const response = await fetch('/api/sendemail', {
@@ -37,7 +37,7 @@ const useSendEmail = (): UseSendEmailReturn => {
         body: JSON.stringify(payload),
       });
 
-      console.log(response);
+      // console.log(response);
       if (!response.ok) throw new Error('Failed to send email');
 
       setIsLoading(false);

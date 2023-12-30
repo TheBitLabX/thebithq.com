@@ -23,7 +23,7 @@ import DOMPurify from "dompurify";
 export default function BlogDetails() {
   const pathname = usePathname();
 
-  console.log(pathname);
+  // console.log(pathname);
   const {
     loading,
     error,
