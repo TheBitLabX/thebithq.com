@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { ChevronRightIcon } from "lucide-react";
 
@@ -92,6 +93,13 @@ export default function DiscoverScrollTabs() {
       pin.kill();
     };
   }, []);
+
+  const pathname = usePathname();
+  useEffect(() => {
+    if (pathname === "/" || pathname === "/about") {
+      ScrollTrigger.refresh();
+    }
+  }, [pathname]);
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     mode: "snap",

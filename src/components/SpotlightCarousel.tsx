@@ -39,6 +39,8 @@ export default function SpotlightCarousel() {
     <div ref={sliderRef} className="keen-slider">
       {Object.values(artistsData).map((artist: ArtistDetails) => {
         ScrollTrigger.refresh();
+        // console.clear();
+        // console.log("reached here");
         return (
           <div key={`artist-${artist.id}`} className="keen-slider__slide">
             <div className="relative h-96 flex justify-center items-center">

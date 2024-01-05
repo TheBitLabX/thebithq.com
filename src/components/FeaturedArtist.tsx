@@ -20,8 +20,7 @@ export default function FeaturedArtist({
           height={250}
           src={cover_img}
           alt={`${name}'s Image`}
-          objectFit='cover'
-          className='object-contain w-[100%] h-[100%]'
+          className='object-cover w-[100%] h-[100%]'
         />
       </figure>
       <div className='card-body hover:bg-black/70 transition duration-200 bg-black/50 rounded-3xl grid place-items-center'>
