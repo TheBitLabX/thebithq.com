@@ -98,9 +98,15 @@ export default function DiscoverScrollTabs() {
   const pathname = usePathname();
   useEffect(() => {
     if (pathname === "/" || pathname === "/about") {
-      ScrollTrigger.refresh(true);
+      ScrollTrigger.refresh();
     }
   }, [pathname]);
+
+  useEffect(() => {
+    if (pathname === "/") {
+      ScrollTrigger.refresh();
+    }
+  });
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     mode: "snap",
