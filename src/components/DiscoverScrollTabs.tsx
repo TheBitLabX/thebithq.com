@@ -121,6 +121,8 @@ export default function DiscoverScrollTabs() {
     },
   });
 
+  ScrollTrigger.refresh(false);
+
   return (
     <div className="mt-10">
       <div className="lg:hidden">

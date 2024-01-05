@@ -9,7 +9,6 @@ import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Home() {
-  ScrollTrigger.refresh();
   return (
     <main className=''>
       <HeroSection isHomepage />
