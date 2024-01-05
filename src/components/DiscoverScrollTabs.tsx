@@ -84,6 +84,8 @@ export default function DiscoverScrollTabs() {
       });
     });
 
+    ScrollTrigger.refresh();
+
     function setActive(link: any) {
       links.forEach((el: any) => el.classList.remove("!border-primary"));
       link.classList.add("!border-primary");
@@ -97,7 +99,7 @@ export default function DiscoverScrollTabs() {
   const pathname = usePathname();
   useEffect(() => {
     if (pathname === "/" || pathname === "/about") {
-      ScrollTrigger.refresh();
+      ScrollTrigger.refresh(true);
     }
   }, [pathname]);
 
