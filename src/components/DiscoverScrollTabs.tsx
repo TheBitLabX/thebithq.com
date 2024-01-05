@@ -89,12 +89,10 @@ export default function DiscoverScrollTabs() {
       link.classList.add("!border-primary");
     }
 
-    ScrollTrigger.refresh(false);
+    ScrollTrigger.refresh();
 
     return () => {
-      ScrollTrigger.clearScrollMemory();
       pin.kill();
-      ScrollTrigger.killAll();
     };
   }, []);
 
