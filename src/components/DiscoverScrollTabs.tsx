@@ -84,7 +84,7 @@ export default function DiscoverScrollTabs() {
       });
     });
 
-    ScrollTrigger.refresh(true);
+    ScrollTrigger.enable();
 
     function setActive(link: any) {
       links.forEach((el: any) => el.classList.remove("!border-primary"));
