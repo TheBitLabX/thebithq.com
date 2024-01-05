@@ -6,7 +6,6 @@ import StoriesSection from "@/components/StoriesSection";
 import FeaturedArtistSection from "@/components/FeaturedArtistSection";
 import HeroSection from "@/components/HeroSection";
 import Link from "next/link";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Home() {
   return (

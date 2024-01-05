@@ -92,10 +92,11 @@ export default function DiscoverScrollTabs() {
     ScrollTrigger.refresh(false);
 
     return () => {
+      ScrollTrigger.clearScrollMemory();
       pin.kill();
+      ScrollTrigger.killAll();
     };
   }, []);
-
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     mode: "snap",
