@@ -102,12 +102,6 @@ export default function DiscoverScrollTabs() {
     }
   }, [pathname]);
 
-  useEffect(() => {
-    if (pathname === "/") {
-      ScrollTrigger.refresh();
-    }
-  });
-
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     mode: "snap",
     slides: {

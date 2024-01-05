@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {ArtistDetails} from '@/interfaces';
+import {ScrollTrigger} from 'gsap/dist/ScrollTrigger';
 
 type Artist = {
     id: string;
@@ -90,6 +91,7 @@ const useSpotifyArtists = (artistIds: string[]): UseSpotifyArtistsReturn => {
 
         if (artistIds && artistIds.length > 0) {
             fetchArtistsData();
+            ScrollTrigger.refresh();
         }
     }, [artistIds]);
 
