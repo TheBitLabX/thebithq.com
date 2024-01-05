@@ -89,17 +89,13 @@ export default function DiscoverScrollTabs() {
       link.classList.add("!border-primary");
     }
 
+    ScrollTrigger.refresh(false);
+
     return () => {
       pin.kill();
     };
   }, []);
 
-  const pathname = usePathname();
-  useEffect(() => {
-    if (pathname === "/" || pathname === "/about") {
-      ScrollTrigger.refresh(false);
-    }
-  }, [pathname]);
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     mode: "snap",
