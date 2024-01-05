@@ -73,10 +73,10 @@ export default function Header() {
           isOpen ? "is-open" : ""
         }`}
       >
-        <ul className='tbhq-topbar'>
+        <ul className="tbhq-topbar">
           <li>
             <Link
-              href='/'
+              href="/"
               className={`flex space-x-2 rounded appearance-none p-1 pl-2 pr-24
               ${
                 !pathname.includes("/soon/")
@@ -107,9 +107,9 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <div className='w-full lg:flex lg:flex-nowrap md:items-center pt-4 pb-4'>
+        <div className="w-full lg:flex lg:flex-nowrap md:items-center pt-4 pb-4">
           <div>
-            <Link href={"/"} className='w-40 inline-block'>
+            <Link href={"/"} className="w-40 inline-block">
               <Image
                 src={
                   scrollPosition > 0
@@ -118,14 +118,14 @@ export default function Header() {
                     ? `/img/svg/logo.svg`
                     : `/img/svg/logo_black.svg`
                 }
-                alt='TheBitHQ Logo'
+                alt="TheBitHQ Logo"
                 width={144}
                 height={54}
               />
             </Link>
           </div>
           <button
-            className='toggle-button'
+            className="toggle-button"
             onClick={() => {
               setIsOpen(!isOpen);
             }}
@@ -133,39 +133,39 @@ export default function Header() {
             {isOpen ? <XIcon /> : <MenuIcon />}
           </button>
           <div className={`nav-block ${isOpen ? "block" : "hidden lg:flex"}`}>
-            <nav className='nav-bar'>
+            <nav className="nav-bar">
               {navItems.map(({ label, url }) => (
-                <Link key={label} className='nav-links' href={url || "#"}>
+                <Link key={label} className="nav-links" href={url || "#"}>
                   <span className={pathname === url ? "active" : undefined}>
                     {label}
                   </span>
                 </Link>
               ))}
             </nav>
-            <div className='mt-4 lg:mt-0 md:flex md:w-full md:flex-auto space-y-4 md:space-y-0 md:space-x-2'>
-              <div className='relative w-full mt-4 md:mt-0'>
+            <div className="mt-4 lg:mt-0 md:flex md:w-full md:flex-auto space-y-4 md:space-y-0 md:space-x-2">
+              <div className="relative w-full mt-4 md:mt-0">
                 <input
-                  type='text'
-                  placeholder='Search for an artist, songs, etc'
-                  className='nav-input'
+                  type="text"
+                  placeholder="Search for an artist, songs, etc"
+                  className="nav-input"
                 />
                 <Image
-                  className='absolute top-1/2 -translate-y-1/2 right-4'
-                  src='/img/svg/arrow_right.svg'
-                  alt='Button Icon'
+                  className="absolute top-1/2 -translate-y-1/2 right-4"
+                  src="/img/svg/arrow_right.svg"
+                  alt="Button Icon"
                   width={24}
                   height={24}
                 />
               </div>
               <Link
                 href={`/auth/login`}
-                className='btn btn-outline btn-primary rounded-lg w-1/2 md:w-auto mr-2 md:mr-0'
+                className="btn btn-outline btn-primary rounded-lg w-1/2 md:w-auto mr-2 md:mr-0"
               >
                 Create Account
               </Link>
               <Link
                 href={`/auth/login`}
-                className='btn btn-primary rounded-lg w-[47%] md:w-auto'
+                className="btn btn-primary rounded-lg w-[47%] md:w-auto"
               >
                 Get Started
               </Link>
