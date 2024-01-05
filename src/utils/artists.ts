@@ -91,7 +91,7 @@ const useSpotifyArtists = (artistIds: string[]): UseSpotifyArtistsReturn => {
 
         if (artistIds && artistIds.length > 0) {
             fetchArtistsData();
-            ScrollTrigger.refresh(false);
+            ScrollTrigger.refresh(true);
         }
     }, [artistIds]);
 

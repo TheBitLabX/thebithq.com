@@ -1,4 +1,3 @@
-"use client";
 import DiscoverScrollTabs from "@/components/DiscoverScrollTabs";
 import SubscribeSection from "@/components/SubscribeSection";
 import SpotlightCarousel from "@/components/SpotlightCarousel";
@@ -10,7 +9,7 @@ import Link from "next/link";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Home() {
-  ScrollTrigger.refresh(false);
+  ScrollTrigger.refresh();
   return (
     <main className=''>
       <HeroSection isHomepage />
