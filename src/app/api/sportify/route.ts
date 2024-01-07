@@ -50,7 +50,6 @@ export async function GET(req: Request) {
 
         }
     } catch (error) {
-        console.error('Error fetching artists data', error);
-        return [];
+        return Response.json({ error: error }, { status: 500 });
     }
  }
