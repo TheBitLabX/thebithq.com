@@ -1,7 +1,7 @@
 import { ArtistDetails } from "@/interfaces";
 import ArtistCard from "./ArtistCard";
 async function getData() {
-  const res = await fetch(`http://localhost:3000/api/sportify`);
+  const res = await fetch(`/api/sportify`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
