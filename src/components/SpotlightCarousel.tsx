@@ -1,12 +1,8 @@
 "use client";
 
-import ArtistCard from "./ArtistCard";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { artistsSpotifyUrls } from "@/data";
-import useSpotifyArtists from "@/utils/artists";
-import { ArtistDetails } from "@/interfaces";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import ArtistSection from "@/components/ArtistsSection";
 
 export default function SpotlightCarousel() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -29,27 +25,9 @@ export default function SpotlightCarousel() {
     },
   });
 
-  const { artistsData, isLoading, error } =
-    useSpotifyArtists(artistsSpotifyUrls);
-
-  if (isLoading) return <div>Loading...</div>;
-  return error ? (
-    <div>Error: {error}</div>
-  ) : (
-    <div ref={sliderRef} className="keen-slider">
-      {Object.values(artistsData).map((artist: ArtistDetails) => {
-        ScrollTrigger.refresh();
-        // console.clear();
-        // console.log("reached here");
-        return (
-          <div key={`artist-${artist.id}`} className="keen-slider__slide">
-            <div className="relative h-96 flex justify-center items-center">
-              <ArtistCard {...artist} />
-            </div>
-          </div>
-        );
-      })}
+  return (
+    <div ref={sliderRef} className='keen-slider'>
+      <ArtistSection />
     </div>
-    
   );
 }
