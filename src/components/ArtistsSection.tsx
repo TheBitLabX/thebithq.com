@@ -7,16 +7,14 @@ async function getData() {
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-  }
-
   return res.json();
 }
 
 export default async function ArtistSection() {
   const artistsData: ArtistDetails | ArrayLike<unknown> = await getData();
-  return (
+  return artistsData == null ? (
+    <div>An Error Occurred</div>
+  ) : (
     <>
       {Object.values(artistsData).map((artist) => {
         const data = {
