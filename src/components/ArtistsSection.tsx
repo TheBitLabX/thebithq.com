@@ -1,5 +1,15 @@
 import { ArtistDetails } from "@/interfaces";
 import ArtistCard from "./ArtistCard";
+
+function isJSON(str: string) {
+  try {
+    JSON.stringify(JSON.parse(str));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL ?? process.env.VERCEL_URL}/api/sportify`
@@ -12,7 +22,7 @@ async function getData() {
 
 export default async function ArtistSection() {
   const artistsData: ArtistDetails | ArrayLike<unknown> = await getData();
-  return artistsData == null ? (
+  return isJSON(artistsData.toString()) ? (
     <div>An Error Occurred</div>
   ) : (
     <>
