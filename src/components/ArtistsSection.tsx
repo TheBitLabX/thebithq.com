@@ -1,14 +1,6 @@
 import { ArtistDetails } from "@/interfaces";
 import ArtistCard from "./ArtistCard";
-
-function isJSON(str: any) {
-  try {
-    JSON.parse(str);
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
+import { Fragment } from "react";
 
 async function getData() {
   const res = await fetch(
@@ -22,10 +14,8 @@ async function getData() {
 
 export default async function ArtistSection() {
   const artistsData: ArtistDetails | ArrayLike<unknown> = await getData();
-  return isJSON(artistsData) ? (
-    <div>An Error Occurred</div>
-  ) : (
-    <>
+  return (
+    <Fragment>
       {Object.values(artistsData).map((artist) => {
         const data = {
           name: artist.name,
@@ -42,6 +32,6 @@ export default async function ArtistSection() {
           </div>
         );
       })}
-    </>
+    </Fragment>
   );
 }
