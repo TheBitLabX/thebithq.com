@@ -14,7 +14,7 @@ async function getData() {
 
 export default async function ArtistSection() {
   const artistsData: ArtistDetails | ArrayLike<unknown> = await getData();
-  
+
   if (Object.keys(artistsData).length === 0) {
     return <div>An Error Occurred</div>;
   }

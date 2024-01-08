@@ -25,9 +25,5 @@ export default function SpotlightCarousel() {
     },
   });
 
-  return (
-    <div ref={sliderRef} className='keen-slider'>
-      <ArtistSection />
-    </div>
-  );
+  return <div ref={sliderRef} className='keen-slider'></div>;
 }
