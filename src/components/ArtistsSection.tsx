@@ -1,9 +1,9 @@
 import { ArtistDetails } from "@/interfaces";
 import ArtistCard from "./ArtistCard";
 
-function isJSON(str: string) {
+function isJSON(str: any) {
   try {
-    JSON.stringify(JSON.parse(str));
+    JSON.parse(str);
     return true;
   } catch (e) {
     return false;
@@ -22,7 +22,7 @@ async function getData() {
 
 export default async function ArtistSection() {
   const artistsData: ArtistDetails | ArrayLike<unknown> = await getData();
-  return isJSON(artistsData.toString()) ? (
+  return isJSON(artistsData) ? (
     <div>An Error Occurred</div>
   ) : (
     <>
